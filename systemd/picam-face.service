@@ -1,0 +1,15 @@
+[Unit]
+Description=PiCamera face+smile detection (:8000 -> :8001)
+After=picam-mjpeg.service
+Wants=picam-mjpeg.service
+
+[Service]
+Type=simple
+User=adhi
+WorkingDirectory=/home/adhi
+ExecStart=/usr/bin/python3 /home/adhi/face-smile.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

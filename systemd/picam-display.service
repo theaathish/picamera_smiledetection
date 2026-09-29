@@ -1,0 +1,15 @@
+[Unit]
+Description=PiCamera TFT renderer (:8001 -> /dev/fb0)
+After=picam-face.service
+Wants=picam-face.service
+
+[Service]
+Type=simple
+User=adhi
+WorkingDirectory=/home/adhi
+ExecStart=/usr/bin/python3 /home/adhi/fb-display.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
